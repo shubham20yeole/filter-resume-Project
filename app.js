@@ -52,7 +52,10 @@ var multiparty = require('connect-multiparty'),
   multipartyMiddleware = multiparty();
   app.use(multipartyMiddleware);
     app.use(function(req, res, next){
-      
+      fs.appendFile('logs.txt', ' SHUBHAM YEOLE ', 
+        function(err){
+          next(); 
+        });
   });
 
 app.get('/', function(req, res){       
