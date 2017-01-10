@@ -39,25 +39,25 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // body parser middleware
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb',extended: false}));
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname)));
+// app.use(bodyParser.json({limit: '50mb'}));
+// app.use(bodyParser.urlencoded({limit: '50mb',extended: false}));
+// app.use(express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname)));
 
-var fs = require('fs');
+// var fs = require('fs');
 
 
 
-var multiparty = require('connect-multiparty'),
-  multipartyMiddleware = multiparty();
-  app.use(multipartyMiddleware);
-    app.use(function(req, res, next){
-      console.log( req.path + "token:" + req.query.access_token)
-      fs.appendFile('logs.txt', req.path + "token:" + req.query.access_token+'', 
-        function(err){
-          next(); 
-        });
-  });
+// var multiparty = require('connect-multiparty'),
+//   multipartyMiddleware = multiparty();
+//   app.use(multipartyMiddleware);
+//     app.use(function(req, res, next){
+//       console.log( req.path + "token:" + req.query.access_token)
+//       fs.appendFile('logs.txt', req.path + "token:" + req.query.access_token+'', 
+//         function(err){
+//           next(); 
+//         });
+//   });
 
 app.get('/', function(req, res){       
   db.resume.find(function (err, resume) {
@@ -65,12 +65,12 @@ app.get('/', function(req, res){
   })
 });
 
-app.post('/getmatch', function(req, res){   
-  var skills = req.body.skills;
-  db.resume.find(function (err, resumeContent) {
-    res.send(resumeContent);    
-  })
-});
+// app.post('/getmatch', function(req, res){   
+//   var skills = req.body.skills;
+//   db.resume.find(function (err, resumeContent) {
+//     res.send(resumeContent);    
+//   })
+// });
 
 // app.post('/upload', function(req, res){       
 //   var file = req.files.file;
