@@ -1,0 +1,31 @@
+{
+  "name": "shubhamaws",
+  "version": "1.0.0",
+  "description": "shubham aws code",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shubham",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-multiparty": "^2.0.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "ftp": "^0.3.10",
+    "jsftp": "^1.5.5",
+    "mongodb": "^2.2.19",
+    "mongojs": "^2.4.0",
+    "passport": "^0.3.2",
+    "path": "^0.12.7",
+    "pdf-to-text": "0.0.6",
+    "pdf2json": "^1.1.7",
+    "pdfjs-dist": "^1.6.430",
+    "s3fs": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

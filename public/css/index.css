@@ -1,0 +1,167 @@
+body{ 
+   background-color: #e9e6ea;
+   /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Indian_National_Flag.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;*/
+}
+#heading{font-size: 25px; font-weight: bold; background-color: #FF5722; color: #FBE9E7; padding: 2%;}
+#imp{font-weight: bold; font-size: 1.5em}
+.remove{padding: 1% 2% 1% 2%; background-color: #eeeeee; cursor: pointer; font-weight: bold; border-radius: 40%}
+#message, #resultcount{color: #e6f5ee; background-color: #099c5d;}
+#resultcount{padding: 2%; font-weight: bold;}
+#resumeselector{ width: 60%; 
+   margin-top: 50px; 
+   background-color: white;
+   opacity: 0.9;
+    filter: alpha(opacity=50);
+   text-align: center;
+   padding: 1% 4% 1% 4%}
+#resumeselector a{ color: blue}
+#awsdiv, #admin-awsdiv{
+  width: 60%;
+  margin-top: 50px; 
+   background-color: white;
+   opacity: 0.9;
+    filter: alpha(opacity=50);
+   text-align: center;
+   padding: 1% 4% 1% 4%
+}
+input[type="file"],input[type="text"]{
+	position: relative;
+   font-family: calibri;
+   width: 350px;
+   padding: 10px;
+   font-size: 1.2em;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border: 1px dashed #BBB; 
+   text-align: center;
+   background-color: #DDD;
+   cursor:pointer;
+}
+#go{border-radius: 50%}
+#go:hover{background-color: black; cursor: pointer; }
+input[type="submit"]{
+     background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+     background-color: #3B2F63;
+    color: white;
+    border: 2px solid #3B2F63;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.nofilter{background-color: white; color: #245070}
+.approved{background-color: white; color: green}
+.rejected{background-color: #ffe5e5; color: red}
+#header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#header li {
+    float: left;
+}
+#header ul li:nth-child(3) {float: right}
+#header ul li:nth-child(4) {float: right}
+#header ul li:nth-child(5) {float: right}
+#header ul li:nth-child(6) {float: right}
+#header ul li:nth-child(7) {float: right}
+
+#header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#header li a:hover {
+    background-color: #111;
+}
+#header li.right{
+text-align:right;
+}
+
+select {
+   margin: 0px 30px 0px 30px;
+  border: 1px solid #111;
+   background: transparent;
+   width: 150px;
+   padding: 5px 35px 5px 5px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   height: 34px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+    background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+} 
+/*target Internet Explorer 9 and Internet Explorer 10:*/
+@media screen and (min-width:0\0) { 
+    select {
+        background:none;
+        padding: 5px;
+    }
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+}
+#footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3473a0;
+    color: white;
+}
+
+#footer li {
+    float: right;
+}
+#footer ul li:nth-child(1) {float: left}
+#footer ul li:nth-child(2) {float: left}
+#footer ul li:nth-child(3) {float: left}
+
+#footer li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#footer li a:hover {
+    background-color: #111;
+}
+#footer li.right{
+text-align:right;
+}
+#signature{margin-top: 200px; position: fixed;}

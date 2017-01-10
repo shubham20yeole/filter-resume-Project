@@ -1,0 +1,56 @@
+Shubham Yeole 
+New York, NY 10038 | (201)887-5323 | shubhamyeole.cs@gmail.com | linkedin.com/in/shubhamyeole 
+EDUCATION 
+Pace University, Seidenberg School of CSIS     New York, NY 
+Masters of Science, Computer Science | GPA: 3.93 May 2017  
+Yadavrao Tasgaonkar Institute of Engineering and Technology (YTIET) Mumbai, India 
+Bachelor of Engineering, GPA: 7.29/10.0  August 2014 
+TECHNICAL SUMMARY  
+ 3+ years of experience in software development using Java, Spring(MVC), Hibernate and MySQL. 
+ 2+ years of hands-on experience in frontend development using AngularJS, JavaScript, jQuery, AJAX, generating 
+HTML/DHTML reports, SASS and CSS technologies. 
+ 1+ years of hands-on experience writing databases queries using MySQL and MongoDB. 
+ 1+ years of experience in building algorithms in Java and Node.js 
+ Solid understanding of SDLC and Agile methodology.  
+PROFESSIONAL EXPERIENCE 
+Magkinetics     Neptune, NJ 
+Full Stack Developer May 2016 – Aug 2016 
+Worked on a team of three to develop a web based project management tool for small scale businesses allowing both the business 
+and customer to track progress of project. Utilized Java, MySQL database, Hibernate, Spring(MVC), JQuery, JavaScript and AJAX 
+technologies to develop three web applications. 
+P2Logic Project: http://www.path2logic.com  
+ Reduced API endpoints failure by 70% by building algorithms in Java, Spring(MVC) and Hibernate framework. 
+ Built RESTful APIs to send image, audio and video to Client69 website with OAuth 2 to send token back and forth for 
+validation process. 
+ Created web application for businesses to effectively manage business activities which included importing customer 
+checklists, creating proposals, and managing prospects and projects. 
+ Implemented Google map and calendar API feature to keep track of user tasks and locations.  
+Client69 Project: http://client69.com 
+ Developed a web application allowing both the admin and customer to post and receive images. 
+ Build RESTful API (server side) for receiving and sending information from and toP2Logic, Client69 and MyCI website. 
+ Utilized Amazon Web Service(AWS) S3 bucket to store images, audios and videos. 
+ Carried out quality assurance tests to discover errors and optimize usability. 
+My Customer Information Project (MyCI): http://mycustomerinformation.com 
+ Built a consumer based product where customer can keep the track of all the activities that are performed by their vendor.  
+ Automated functionality which provides customer with MYCI access code to check progress of work. 
+ Implemented feature allowing customer to upload images to Client69 for vendor through AWS. 
+ACADEMIC PROJECTS 
+Real Estates: http://shubham-great-livings.herokuapp.com/  Dec 2016 - Present 
+ Designing and developing commercial real estate website using Node.js and MongoDB. 
+ Frontend technologies includes AngularJS, JavaScript, jQuery, Ajax and SASS. 
+ Utilized 311 dataset and google maps to highlight safe places on map with color density. 
+ Advanced technology utilized includes Postmaker, Facebook, Twilio REST API and Amazon S3 bucket. 
+Node.js and Java Blog: http://java-nodejs-blog.herokuapp.com                    May 2016 
+ Built a blog for software developers where user can post and read codes under specific category. 
+ Backend utilized is Node.js along with AngularJS, JavaScript, jQuery and AJAX frontend technologies. 
+ Advanced technology utilized includes Facebook, SendGrid, Linkedin, and Twilio REST APIs. 
+Easy Search SMS service: https://shubhamtwilio.herokuapp.com/                                 Dec 2015 
+ Implemented SMS service using Twilio API to allows guardians learn about their children’s activities in school. 
+ Technology used is Java 8 and Spring(MVC), Hibernate framework and MySQL database to store actions made by user. 
+ User needs to send ‘start’ message to +(419)482-1780 number or visit platform at click here to start using SMS service. 
+Student Help Desk IVR system                         Sept 2015 
+ Developed  interactive  voice  recognition (IVR) system  for  students  to  effectively  utilize  university  services  which  includes 
+learning previous grades, course information, survey. 
+ Utilized Twilio  API with  4  programming/scripting  languages  which  includes Node.js,  AngularJS,  JavaScript  and  Ajax with 
+Express framework. 
+----------------Page (0) Break----------------
