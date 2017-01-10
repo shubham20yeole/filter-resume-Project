@@ -6,9 +6,9 @@ STEPS to SETUP Node.js PROJECT for Amazon web service (AWS) s3 bucket
 4. npm install path --save
 5. npm install ejs --save
 6. npm install passport --save
-7. npm install git+https://github.com/RiptideElements/s3fs
-8. npm install fs --save
-9. npm install s3fs --save
+7. npm install fs --save
+8. npm install mongodb --save
+9. npm install mongojs --save
 10. npm install connect-multiparty --save
 11. Install Nodemon
 ```nodejs
