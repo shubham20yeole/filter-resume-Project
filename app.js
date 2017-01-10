@@ -18,6 +18,17 @@ var JSFtp = require("jsftp");
         user: 'b8_19205430',
         password: 'Shubham4194'
       }
+// var db = mongojs('mongodb://***********@**********.com:****/****', collections)
+// var JSFtp = require("jsftp");
+
+
+//  var fs = require('fs');
+//       var config = {
+//         host: '****',
+//         port: 21,
+//         user: '****',
+//         password: '****'
+//       }
 var app = express();
 var passport = require("passport")
 app.listen(port, function() {
@@ -70,8 +81,8 @@ app.post('/upload', function(req, res){
   var Client = require('ftp');
   var date = new Date();
   var datetime = (date.getMonth()+1)+" / "+date.getDate()+" / "+date.getFullYear()+" at "+date.getHours()+":"+date.getMinutes();
-  let PDFParser = require("pdf2json");
-  let pdfParser = new PDFParser(this,1);
+  var PDFParser = require("pdf2json");
+  var pdfParser = new PDFParser(this,1);
   pdfParser.loadPDF(file.path);         
 
   pdfParser.on("pdfParser_dataError", errData => console.error(errData.parserError) );
