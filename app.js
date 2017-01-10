@@ -72,61 +72,61 @@ app.post('/getmatch', function(req, res){
   })
 });
 
-app.post('/upload', function(req, res){       
-  var file = req.files.file;
-  var filepath = file.path;
-  var fullname = req.body.fullname;
-  var email = req.body.email;
-  var timestamp = new Date().valueOf();
-  var Client = require('ftp');
-  var date = new Date();
-  var datetime = (date.getMonth()+1)+" / "+date.getDate()+" / "+date.getFullYear()+" at "+date.getHours()+":"+date.getMinutes();
-  var PDFParser = require("pdf2json");
-  var pdfParser = new PDFParser(this,1);
-  pdfParser.loadPDF(file.path);         
+// app.post('/upload', function(req, res){       
+//   var file = req.files.file;
+//   var filepath = file.path;
+//   var fullname = req.body.fullname;
+//   var email = req.body.email;
+//   var timestamp = new Date().valueOf();
+//   var Client = require('ftp');
+//   var date = new Date();
+//   var datetime = (date.getMonth()+1)+" / "+date.getDate()+" / "+date.getFullYear()+" at "+date.getHours()+":"+date.getMinutes();
+//   var PDFParser = require("pdf2json");
+//   var pdfParser = new PDFParser(this,1);
+//   pdfParser.loadPDF(file.path);         
 
-  pdfParser.on("pdfParser_dataError", errData => console.error(errData.parserError) );
-  pdfParser.on("pdfParser_dataReady", pdfData => {
-  var resumeContent = pdfParser.getRawTextContent();
-      var c = new Client();
-      c.on('ready', function() {
-        c.put(file.path, 'htdocs/resume/shubham-resume-selector-project-'+timestamp+"-"+file.originalFilename, function(err) {
-          if (err) throw err;
-          c.end();
-        });
-      });
-      c.connect(config);
-      var resumeurl = 'http://shubhamyeole.byethost8.com/resume/shubham-resume-selector-project-'+timestamp+"-"+file.originalFilename;
-      var newResume = {
-        fullname: fullname,
-        email: email,
-        filename: file.originalFilename,
-        resume: resumeurl,
-        timestamp: timestamp,
-        datetime: datetime,
-        resumetext: resumeContent
-      }
-      db.resume.insert(newResume, function(err, result){
-        if(err){console.log(err);}
-         db.resume.find(function (err, resume) {
-            res.render("index.ejs", {message:"Thank you for submitting your Resume. We will review your application and contact you shortly.", resumecount: resume.length});
-          })        
-        });
-      });   
-});
+//   pdfParser.on("pdfParser_dataError", errData => console.error(errData.parserError) );
+//   pdfParser.on("pdfParser_dataReady", pdfData => {
+//   var resumeContent = pdfParser.getRawTextContent();
+//       var c = new Client();
+//       c.on('ready', function() {
+//         c.put(file.path, 'htdocs/resume/shubham-resume-selector-project-'+timestamp+"-"+file.originalFilename, function(err) {
+//           if (err) throw err;
+//           c.end();
+//         });
+//       });
+//       c.connect(config);
+//       var resumeurl = 'http://shubhamyeole.byethost8.com/resume/shubham-resume-selector-project-'+timestamp+"-"+file.originalFilename;
+//       var newResume = {
+//         fullname: fullname,
+//         email: email,
+//         filename: file.originalFilename,
+//         resume: resumeurl,
+//         timestamp: timestamp,
+//         datetime: datetime,
+//         resumetext: resumeContent
+//       }
+//       db.resume.insert(newResume, function(err, result){
+//         if(err){console.log(err);}
+//          db.resume.find(function (err, resume) {
+//             res.render("index.ejs", {message:"Thank you for submitting your Resume. We will review your application and contact you shortly.", resumecount: resume.length});
+//           })        
+//         });
+//       });   
+// });
 
-app.post('/upload2', function(req, res){       
-  var file = req.files.file;
-  var filepath = file.path;
-  var timestamp = new Date().valueOf();
-  var Client = require('ftp'); 
-  var c = new Client();
-    c.on('ready', function() {
-      c.put(file.path, 'htdocs/public_html/career/'+file.originalFilename, function(err) {
-        if (err) throw err;
-         c.end();
-        });
-   });
-   c.connect(config);
-   res.redirect("/");     
-});
+// app.post('/upload2', function(req, res){       
+//   var file = req.files.file;
+//   var filepath = file.path;
+//   var timestamp = new Date().valueOf();
+//   var Client = require('ftp'); 
+//   var c = new Client();
+//     c.on('ready', function() {
+//       c.put(file.path, 'htdocs/public_html/career/'+file.originalFilename, function(err) {
+//         if (err) throw err;
+//          c.end();
+//         });
+//    });
+//    c.connect(config);
+//    res.redirect("/");     
+// });
