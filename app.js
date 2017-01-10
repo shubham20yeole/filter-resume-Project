@@ -52,24 +52,20 @@ var multiparty = require('connect-multiparty'),
   multipartyMiddleware = multiparty();
   app.use(multipartyMiddleware);
     app.use(function(req, res, next){
-      console.log( req.path + "token:" + req.query.access_token)
-      fs.appendFile('logs.txt', req.path + "token:" + req.query.access_token+'', 
-        function(err){
-          next(); 
-        });
+      
   });
 
 app.get('/', function(req, res){       
   db.resume.find(function (err, resume) {
     res.render("index.ejs", {message:"", resumecount: resume.length});
-  })
+  });
 });
 
 app.post('/getmatch', function(req, res){   
   var skills = req.body.skills;
   db.resume.find(function (err, resumeContent) {
     res.send(resumeContent);    
-  })
+  });
 });
 
 app.post('/upload', function(req, res){       
