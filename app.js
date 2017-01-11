@@ -16,7 +16,16 @@ var app = express();
 var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
 
+var JSFtp = require("jsftp");
 
+
+var fs = require('fs');
+var config = {
+  host: 'ftp.byethost8.com',
+  port: 21,
+  user: 'b8_19205430',
+  password: 'Shubham4194'
+}
 
 // View Engine
 app.set('view engine', 'ejs');
