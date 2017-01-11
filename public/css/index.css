@@ -12,8 +12,7 @@ body{
 #resumeselector{ width: 60%; 
    margin-top: 50px; 
    background-color: white;
-   opacity: 0.9;
-    filter: alpha(opacity=50);
+   
    text-align: center;
    padding: 1% 4% 1% 4%}
 #resumeselector a{ color: blue}
@@ -72,37 +71,8 @@ th, td {
 .nofilter{background-color: white; color: #245070}
 .approved{background-color: white; color: green}
 .rejected{background-color: #ffe5e5; color: red}
-#header ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
-#header li {
-    float: left;
-}
-#header ul li:nth-child(3) {float: right}
-#header ul li:nth-child(4) {float: right}
-#header ul li:nth-child(5) {float: right}
-#header ul li:nth-child(6) {float: right}
-#header ul li:nth-child(7) {float: right}
 
-#header li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#header li a:hover {
-    background-color: #111;
-}
-#header li.right{
-text-align:right;
-}
 
 select {
    margin: 0px 30px 0px 30px;
@@ -125,7 +95,13 @@ select {
         padding: 5px;
     }
 }
-
+.header{
+ position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
 .footer {
   position: fixed;
   right: 0;
