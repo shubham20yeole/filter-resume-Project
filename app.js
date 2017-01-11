@@ -74,7 +74,12 @@ app.get('/', function(req, res){
   });
 });
 
-
+app.post('/getmatch', function(req, res){   
+  var skills = req.body.skills;
+  db.resume.find(function (err, resumeContent) {
+    res.send(resumeContent);    
+  });
+});
 app.listen(port, function() {
   console.log('Listening on port ' + port)
 })
