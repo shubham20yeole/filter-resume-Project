@@ -9,7 +9,7 @@ body{
 .remove{padding: 1% 2% 1% 2%; background-color: #eeeeee; cursor: pointer; font-weight: bold; border-radius: 40%}
 #message, #resultcount{color: #e6f5ee; background-color: #099c5d;}
 #resultcount{padding: 2%; font-weight: bold;}
-#resumeselector{ width: 60%; 
+#resumeselector{ width: 70%; 
    margin-top: 50px; 
    background-color: white;
    
@@ -17,7 +17,7 @@ body{
    padding: 1% 4% 1% 4%}
 #resumeselector a{ color: blue}
 #awsdiv, #admin-awsdiv{
-  width: 60%;
+  width: 70%;
   margin-top: 50px; 
    background-color: white;
    opacity: 0.9;
@@ -75,7 +75,7 @@ th, td {
 
 
 select {
-   margin: 0px 30px 0px 30px;
+   margin: 0px 20px 0px 20px;
   border: 1px solid #111;
    background: transparent;
    width: 150px;
@@ -140,4 +140,7 @@ select {
 #footer li.right{
 text-align:right;
 }
-#signature{margin-top: 200px; position: fixed;}
+#signature{margin-top: 200px; position: fixed;
+  color: #3473a0; font-weight: bold;
+  opacity: 0.5;
+}
