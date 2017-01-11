@@ -17,7 +17,6 @@ var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
 var blog=db.collection('blog');
 var session = require('client-sessions');
-var routes = require('./controllers/index');
 
 /*var logger = function(req, res, next){
 	console.log("Logging...");
@@ -50,7 +49,6 @@ app.use(function(req, res, next){
 	res.locals.errors = null;
 	next();
 })
-app.use('/', routes);
 
 // Express Validator
 app.use(expressValidator({
@@ -70,6 +68,9 @@ app.use(expressValidator({
   }
 }));
  var errmsg = "Computer Science Project";
+app.get('/', function(req, res){
+  res.send("ok");
+});
 
 
 app.post('/users/add', function(req, res){
