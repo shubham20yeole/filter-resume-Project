@@ -1,130 +1,55 @@
-<link rel="stylesheet" type="text/css" href="/css/index.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="/js/index.js"></script> 
-<div id="signature">
-<h2>DEVELOPER INFO: </h2>
-<p>Name: Shubham Yeole</p>
-<p>Title: Full Stack Developer</p>
-<p>Status: Seeking full time opportunity</p>
-<p>Phone: +1 (201) 887-5323</p>
-<p>Email: shubhamyeole.cs@gmail.com</p>
-</div>
-<div id="header">
-<ul>
-  <li><a class="upload" href="#home">Upload Resume</a></li>
-  <li><a href="#allresume" class="allresume">Filter Resume</a></li>
-  <li><a href="http://shubham-great-livings.herokuapp.com/" target="_blank">My Real Estate</a></li>
-  <li><a href="https://java-nodejs-blog.herokuapp.com/" target="_blank">My Blog</a></li>
-  <li><a href="https://shubhamtwilio.herokuapp.com/" target="_blank">My Twilio Project</a></li>
-  <li><a href="https://github.com/shubham20yeole/AmazonWebService-AWS-S3Bucket" target="_blank">AWS S3 Bucket Project</a></li>
-  <li><a href="https://github.com/shubham20yeole/IVR-HelpDeskProject" target="_blank">IVR-HelpDeskProject</a></li>
-</ul>
-</div>
-<center>
-	<h1 id="message"><%=message%></h1>
-<div id="awsdivout">
-<div id="awsdiv">
-<p id="heading">Upload Resume / <a class="allresume" href="#">Filter Resume</a></p>
-	<h2>& RESUME SELECTOR DEMO</h2>
-	<h5>B Y - S H U B H A M</h5>
-	<form method="post" action="/upload" enctype="multipart/form-data">
-		<p><input type="text" name="fullname" id="name" placeholder="Full Name"><span id="name-msg"></span></p>
-		<p><input type="text" name="email" id="email" placeholder="Enter your email"><span id="email-msg"></span></p>
-		<p><input type="file" name="file" title="s" id="file"><span id="file-msg"></span></p>
-		<input type="submit" name="submit" style="display: none;" id="finalsubmit" value="Submit Resume">
-	</form>
-	<input type="submit" name="submit" id="checkpdf" value="Submit Resume"></i>
-	<br><br>
-<div id="resultcount">TOTAL RESUME IN SYSTEM = <%=resumecount%></div>
+<% include partials/header %>
 
-</div>
 
-<div id="admin-awsdivout">
-<div id="admin-awsdiv">
-<p id="heading">ADMIN SECTION / <a class="allresume" href="#">Filter Resume</a></p>
-	<h5>B Y - S H U B H A M</h5>
-	<form method="post" action="/upload2" enctype="multipart/form-data">
-		<p><input type="file" name="file" ></span></p>
-		<input type="submit" name="submit" value="Submit File">
-	</form>
-	<br><br>
-<div id="resultcount">TOTAL RESUME IN SYSTEM = <%=resumecount%></div>
-</div>
-</div></div>
-<div id="resumeselector">
-<p id="heading">Filter the resume from below dropdown options / <a class="upload" href="#home">Upload Resume</a></p>
-<select class="select">
-  <option value="default">Backend</option>
-  <option value="java">Java</option>
-  <option value="python">Python</option>
-  <option value="nodejs">Nodejs</option>
-  <option value="c#">C#</option>
-  <option value="net">.Net</option>
-  <option value="c++">C++</option>
-  <option value="scala">SCALA</option>
-</select>
-
-<select class="select">
-  <option value="default">Frontend</option>
-  <option value="angular">AngularJS</option>
-  <option value="javascript">JavaScript</option>
-  <option value="html">HTML</option>
-  <option value="html5">HTML5</option>
-  <option value="css">CSS</option>
-  <option value="bootstrap">BootStrap</option>
-  <option value="sass">SASS</option>
-</select>
-
-<select class="select">
-  <option value="default">API</option>
-  <option value="facebook">Facebook API</option>
-  <option value="linkedin">LinkedIn API</option>
-  <option value="aws">AWS S3 Bucket</option>
-  <option value="pdf">pdf.js</option>
-  <option value="sendgrid">Sendgrid API</option>
-  <option value="email">Email Service</option>
-  <option value="twilio">Twilio API</option>
-</select>
-
-<select class="select">
-  <option value="default">Database</option>
-  <option value="mysql">MySQL</option>
-  <option value="nosql">NoSQL</option>
-  <option value="mongodb">MongoDB</option>
-</select>
-<br><hr><br>
-<div id="skillsdiv"><span id="imp">Filter Skills:</span> </div>
-
-<button id="go" style="display: none;"><img src="/images/go.jpg" width="62" height="62"></button>
- <br><hr><br>
-<div id="resultcount">TOTAL RESUME IN SYSTEM = <%=resumecount%></div>
-<div id="resumeappendout">
-	<table width='100%'>
-		<tr><td>Name</td><th>Email</th><th>Resume URL</th>
-		<th>Date</th><th>Approve Status</th><th>Action Status</th></tr>
-		<tbody id="resumeappend"></tbody>
-	</table>
+<% if(errors){ %>
+<% errors.forEach(function(errors){%>
+	<%= errors.msg %>
 	
-</div>
-</div>
-</center>
-
-<div class="footer" id="footer">
-<ul>
-  <li><a class="admin" href="#admin">ADMIN</a></li>
-  <li><a class="upload" href="#home">UPLOAD RESUME</a></li>
-  <li><a href="#allresume" class="allresume">FILTER RESUME</a></li>
-  <li><a href="https://github.com/shubham20yeole?tab=repositories" target="_blank"><i class="fa fa-github"></i></a></li>
-  <li><a href="https://www.facebook.com/sy06736n" target="_blank"><i class="fa fa-facebook"></i></a></li>
-  <li><a href="https://www.linkedin.com/in/shubhamyeole" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-  <li><a href="#"> | </a></li>
-  <li><a href="https://shubhamtwilio.herokuapp.com/" target="_blank">TWILIO</a></li>
-  <li><a href="http://shubham-great-livings.herokuapp.com/" target="_blank">REAL ESTATE</a></li>
-  <li><a href="https://java-nodejs-blog.herokuapp.com/" target="_blank">BLOG</a></li>
-  <li><a href="https://github.com/shubham20yeole/IVR-HelpDeskProject" target="_blank">IVR</a></li>
-  <li><a href="https://github.com/shubham20yeole/AmazonWebService-AWS-S3Bucket" target="_blank">AWS</a></li>
-  <li><a href="#">MY PROJECTS <i class="fa fa-hand-o-right"></i></a></li>
-</ul>
+<%}) %>
+<%}%>
+	 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+</head>
+<body>
+<div class="parallax"><p class="errmsg animated rubberBand"><%=errmsg %></p>
 </div>
 
+<div id="accordion">
+  <h3>Section 1</h3>
+  <div>
+    <p>
+   
+    </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+   		
+
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+
+    </p>
+  </div>
+  <h3>Section 4</h3>
+  <div><p>
+  
+    </p></div>
+    <h3>Section 4</h3>
+  <div><p>
+  
+    </p></div>
+
+</div>
+
+   
+<% include partials/footer %>

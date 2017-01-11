@@ -1,0 +1,177 @@
+<html>
+	<head>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/it/b/be/Pace_plc-logo.png" width="100%">
+	<title>Shubham Java & NodeJs Blog | webapp</title>
+
+  <!-- ****************************************CSS IMPORTS**************************************** -->
+
+  <link rel="stylesheet" type="text/css" href="/css/header.css">
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+	<link rel="stylesheet" type="text/css" href="/css/member.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+  <!-- ****************************************JavaScript IMPORTS**************************************** -->
+  <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+ 
+
+
+  <script src="js/header.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+
+
+<!-- ****************************************Google Fonts IMPORTS**************************************** -->
+
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+<body style="margin:0;padding:0;">
+<div style="padding: 10px; text-align: right;">
+<a href="https://www.linkedin.com/in/shubhamyeole" target="_blank"><img src="images/linkedin.jpg"  width="22" height="22" /></a>
+<a href="https://github.com/shubham20yeole" target="_blank"><img src="images/github.jpg"  width="22" height="22" /></a>
+<a href="https://www.facebook.com/sy06736n" target="_blank"><img src="images/fb.jpg"  width="22" height="22" /></a>
+<a href="http://stackoverflow.com/users/5451749/shubham-yeole" target="_blank"><img src="images/stackoverflow.jpg"  width="22" height="22" /></a>
+</head>
+<body>
+</div>
+ <section>
+    <div class="sticky">
+        <ul class="classul">
+            
+            <li><a href="random%20word%20%A3500%20d%20%A3500%20d%20%A3500%20bank%20%24" target="_blank">Current Users</a></li>   
+            <li><a href="https://shubhamjavaworld.herokuapp.com/" id="stayawake" target="_blank">Website</a></li>
+            <li> <a href="/auth/linkedin" class="btn btn-default">LinkedIn</a></li>
+            <li> <a href="/blog" class="btn btn-default">Ask Question?</a></li>
+            <li> <a href="/googlemap/" class="btn btn-default">Google Map</a></li>
+
+            <% if(session=='false'){%>
+                <li>
+                   <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up / Sign In</a>
+                </li>
+            <%}else{%>
+            <li>
+               <a href="/logout/">Logout</a>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+ 
+      
+
+
+<div id="id01" class="modal">
+<div class="modal-content animate">
+
+<div id="logindiv" class="crhad">
+  <form method="POST" action="/login/">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://image.freepik.com/free-icon/male-profile-user-shadow_318-40244.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+
+      <label><b>Email</b></label>
+      <input type="text" class="logintext" placeholder="Enter Username" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" class="logintext" placeholder="Enter Password" name="password" required>
+        
+      <input type="submit" value="Sign In">
+      <input type="checkbox" checked="checked"> Remember me<br>
+    </div>
+</form>
+    <div class="container" id="random" style="background-color:#f1f1f1">
+
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>    
+      <button class="createacc"  type="button">Create an account?</button>
+
+      <span class="psw"><% include ../partials/fboauth %></span><br><br>
+    </div>
+  
+  </div>
+  <div id="registerdiv">
+  <p class="crhad message">Create a new account</p>
+  <form method="POST" action="/users/add">
+    <input type="text" class="halflogintext" name="firstname" placeholder="First Name">
+    <input type="text" class="halflogintext" name="lastname" placeholder="Last Name"><br>
+    <input type="text" class="halflogintext" name="email" placeholder="Email address">
+    <input type="text" class="halflogintext" name="phone" placeholder="Phone Number"><br>
+    <input type="text" class="logintext" name="website" placeholder="Website"><br>
+    <input type="text" class="logintext" name="gender" value="" placeholder="Gender"><br>
+    <input type="text" class="logintext" name="password" placeholder="Password"><br>
+    <input type="hidden" class="logintext" name="photo" value="https://image.freepik.com/free-icon/male-profile-user-shadow_318-40244.jpg"><br>
+    <input class="crhad" type="submit" value="submit">
+  </form>
+    <% include ../partials/fboauth %>
+    
+    <p class="crhad buttoneffect" id="accexist">Already have an account?
+
+
+  </div>
+ <div class="container">
+
+  <div id="fbreglog">
+  <div id="fbcon">
+  <h2 id="fbmsg" style="color: #b0bcd5;"></h2>
+    <section class="abtmesec">
+        <div id="abtmeimage">
+              <img src="https://scontent.xx.fbcdn.net/t31.0-1/p960x960/14918852_1130318267089121_4521746386201142266_o.jpg" alt="Avatar" width="250" height="250" style="padding-left: 23%;" class="avatar1"> <br>
+              <img src="images/fbgif.gif" alt="Avatar" width="370" height="235" class="fdblogo">
+
+        </div>
+        <div id="abtmecnt">
+         
+               <form method="POST" action="/users/add">
+                    <input type="text" class="fbinput" name="firstname" id="fb_fname" placeholder="First Name"><br><br>
+                    <input type="text" class="fbinput" name="lastname" id="fb_lname" placeholder="Last Name"><br><br>
+                    <input type="text" class="fbinput" name="email" id="fb_email" placeholder="Email address"><br><br>
+                    <input type="text" class="fbinput" name="phone" id="fb_phone" placeholder="Phone Number"><br><br>
+                    <input type="text" class="fbinput" name="gender" id="fb_gender" placeholder="Gender"><br><br>
+                    <a id="fblink" href="" target="_blank">Your Facebook timeline</a><br><br>
+                    <input type="hidden" class="fbinput" name="website" id="fb_fbprofile" placeholder="Website">
+                    <input type="hidden" class="fbinput" name="fbid" id="fb_id" placeholder="Password">
+                    <input type="hidden" class="fbinput" name="photo" id="fb_photo" placeholder="Just for reference">
+                <input class="crhad" type="submit" value="Log In">
+              </form>
+          <input type="text" class="" name="photo" id="test" placeholder="Password"> 
+      </div>
+    </section>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
+
