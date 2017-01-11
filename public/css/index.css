@@ -6,7 +6,7 @@ body{
 }
 #heading{font-size: 25px; font-weight: bold; background-color: #FF5722; color: #FBE9E7; padding: 2%;}
 #imp{font-weight: bold; font-size: 1.5em}
-.remove{padding: 1% 2% 1% 2%; background-color: #eeeeee; cursor: pointer; font-weight: bold; border-radius: 40%}
+.remove{padding: 1%; background-color: #eeeeee; cursor: pointer; font-weight: bold; border-radius: 40%}
 #message, #resultcount{color: #e6f5ee; background-color: #099c5d;}
 #resultcount{padding: 2%; font-weight: bold;}
 #resumeselector{ width: 70%; 
@@ -14,14 +14,14 @@ body{
    background-color: white;
    
    text-align: center;
-   padding: 1% 4% 1% 4%}
+   padding: 1%}
 #resumeselector a{ color: blue}
 #awsdiv, #admin-awsdiv{
   width: 70%;
   margin-top: 50px; 
    background-color: white;
    text-align: center;
-   padding: 1% 4% 1% 4%
+   padding: 1%;
 }
 input[type="file"],input[type="text"]{
 	position: relative;
