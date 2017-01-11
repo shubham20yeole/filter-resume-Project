@@ -60,7 +60,7 @@ var multiparty = require('connect-multiparty'),
 
 app.get('/', function(req, res){       
   db.resume.find(function (err, resume) {
-    res.render("index.ejs", {message:"", resumecount: resume.length});
+    res.send("index.ejs");
   });
 });
 
