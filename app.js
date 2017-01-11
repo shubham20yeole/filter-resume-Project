@@ -15,58 +15,38 @@ var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63
 var app = express();
 var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
-var blog=db.collection('blog');
-var session = require('client-sessions');
 
-/*var logger = function(req, res, next){
-	console.log("Logging...");
-	next();
-} 
-mongodb://ds143717.mlab.com:43717/shubham
-var db = mongojs('//mongodb://shubham20.yeole:shubham20.yeole@ds143717.mlab.com:43717/shubham', ['users'])
-app.use(logger);*/
+
 
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
-// body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
-// set static path
-
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname)));
-app.use(session({
-  cookieName: 'session',
-  secret: 'random_string_goes_here',
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000,
-}));
-//Global vars
-app.use(function(req, res, next){
-	res.locals.errors = null;
-	next();
-})
+// body parser middleware
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb',extended: false}));
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname)));
 
-// Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+var fs = require('fs');
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+
+
+var multiparty = require('connect-multiparty'),
+  multipartyMiddleware = multiparty();
+  app.use(multipartyMiddleware);
+    app.use(function(req, res, next){
+      console.log( req.path + "token:" + req.query.access_token)
+      fs.appendFile('logs.txt', req.path + "token:" + req.query.access_token+'', 
+        function(err){
+          next(); 
+        });
+  });
+// set static path
+
+
+
  var errmsg = "Computer Science Project";
 app.get('/', function(req, res){       
   db.resume.find(function (err, resume) {
@@ -79,6 +59,65 @@ app.post('/getmatch', function(req, res){
   db.resume.find(function (err, resumeContent) {
     res.send(resumeContent);    
   });
+});
+
+app.post('/upload', function(req, res){       
+  var file = req.files.file;
+  var filepath = file.path;
+  var fullname = req.body.fullname;
+  var email = req.body.email;
+  var timestamp = new Date().valueOf();
+  var Client = require('ftp');
+  var date = new Date();
+  var datetime = (date.getMonth()+1)+" / "+date.getDate()+" / "+date.getFullYear()+" at "+date.getHours()+":"+date.getMinutes();
+  let PDFParser = require("pdf2json");
+  let pdfParser = new PDFParser(this,1);
+  pdfParser.loadPDF(file.path);         
+
+  pdfParser.on("pdfParser_dataError", errData => console.error(errData.parserError) );
+  pdfParser.on("pdfParser_dataReady", pdfData => {
+  var resumeContent = pdfParser.getRawTextContent();
+      var c = new Client();
+      c.on('ready', function() {
+        c.put(file.path, 'htdocs/resume/shubham-resume-selector-project-'+timestamp+"-"+file.originalFilename, function(err) {
+          if (err) throw err;
+          c.end();
+        });
+      });
+      c.connect(config);
+      var resumeurl = 'http://shubhamyeole.byethost8.com/resume/shubham-resume-selector-project-'+timestamp+"-"+file.originalFilename;
+      var newResume = {
+        fullname: fullname,
+        email: email,
+        filename: file.originalFilename,
+        resume: resumeurl,
+        timestamp: timestamp,
+        datetime: datetime,
+        resumetext: resumeContent
+      }
+      db.resume.insert(newResume, function(err, result){
+        if(err){console.log(err);}
+         db.resume.find(function (err, resume) {
+            res.render("index.ejs", {message:"Thank you for submitting your Resume. We will review your application and contact you shortly.", resumecount: resume.length});
+          })        
+        });
+      });   
+});
+
+app.post('/upload2', function(req, res){       
+  var file = req.files.file;
+  var filepath = file.path;
+  var timestamp = new Date().valueOf();
+  var Client = require('ftp'); 
+  var c = new Client();
+    c.on('ready', function() {
+      c.put(file.path, 'htdocs/public_html/career/'+file.originalFilename, function(err) {
+        if (err) throw err;
+         c.end();
+        });
+   });
+   c.connect(config);
+   res.redirect("/");     
 });
 app.listen(port, function() {
   console.log('Listening on port ' + port)
