@@ -8,9 +8,9 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
 // var db = mongojs('mongodb://ds143717.mlab.com:43717/shubham', ['users']);
-var collections = ["users", "blog", "comments"]
+var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills"]
 
-var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds143717.mlab.com:43717/shubham', collections)
+var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63387/paceteam3', collections)
 
 var app = express();
 var ObjectId = mongojs.ObjectId;
@@ -68,8 +68,10 @@ app.use(expressValidator({
   }
 }));
  var errmsg = "Computer Science Project";
-app.get('/', function(req, res){
-  res.send("ok");
+app.get('/', function(req, res){       
+  db.resume.find(function (err, resume) {
+    res.render("index.ejs", {message:"", resumecount: resume.length});
+  });
 });
 
 
