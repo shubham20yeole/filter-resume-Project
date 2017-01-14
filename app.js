@@ -8,7 +8,7 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
 // var db = mongojs('mongodb://ds143717.mlab.com:43717/shubham', ['users']);
-var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills"]
+var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills", "locations"]
 
 var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63387/paceteam3', collections)
 
@@ -128,6 +128,53 @@ app.post('/upload2', function(req, res){
    c.connect(config);
    res.redirect("/");     
 });
+
+app.post('/addloc', function(req, res){
+var date = new Date();
+var datetime = date.getMonth()+1+"/"+date.getDate()+"/"+date.getFullYear()+" at "+date.getHours()+":"+date.getMinutes();
+var long = req.body.long;
+var lat = req.body.lat;
+var whatdone = req.body.task;
+console.log(long+", "+lat+", "+whatdone);
+var lat_1 = Number(lat)-0.000203;
+var lat_2 = Number(lat)+0.000203;
+var long_1 = Number(long)-0.00070989999;
+var long_2 = Number(long)+0.00070989999;     
+db.locations.findOne({
+       $and : [
+          { $and : [ { lat : { $gt: lat_1} }, { lat : { $lt: lat_2} } ] },
+          { $and : [ { long: { $gt: long_1} }, { long : { $lt: long_2} } ] }
+      ]
+      }, function(err, location) {
+      if (!location) {
+        var newLoc = {
+          visittime: 1,
+          re_c: 0,
+          tt_c: 0,
+          bb_c: 0,
+          rs_c: 1,
+          re_task: "",
+          tt_task: "",
+          bb_task: "",
+          rs_task: whatdone+" ("+datetime+")",
+          long: Number(long),
+          lat: Number(lat)
+        }
+        db.locations.insert(newLoc, function(err, result){
+        if(err){console.log(err);}
+        res.send("INSERTED");
+        });
+      }else {
+        var count = location.visittime+1;
+        var cc = location.rs_c+1;
+        whatdone = whatdone+" ("+datetime+"),"+location.rs_task;
+        db.locations.update({_id: location._id},{$set : {"visittime": count, "rs_c": cc, "rs_task": whatdone}},{upsert:true,multi:false});
+        res.send("UPDATED: "+count);
+      }
+  });
+});
+
+
 app.listen(port, function() {
   console.log('Listening on port ' + port)
 })

@@ -1,3 +1,5 @@
+var task = "RS-HOME";
+
 $( document ).ready(function() {
     $("#admin-awsdivout").hide();
     $("#awsdiv").hide();
@@ -26,21 +28,21 @@ function loadResume(){
         },2500);
     })
 }
- $(document).on("keyup","#city,#state, #staddress, #zip",function() {
-    $("#longlatidiv").show().addClass("animated rotateInDownRight");
-    $("#map").show().addClass("animated rotateInDownRight");
-    var address1 = $('#staddress').val()+", "+$('#city').val()+", "+$('#state').val()+", "+$('#zip').val();
-    getLatitudeLongitude(showResult, address1);
-});
+
 
 $(document).on("click",".allresume",function() {
     $("#admin-awsdivout").hide();
     $("#awsdiv").hide();
     $("#resumeselector").show();
+    task = "RS-ALLRESUME";
+    longLatCurrent();
+
 });
 
 $(document).on("click",".admin",function() {
     var person = prompt("Please enter admin password", "");
+    task = "RS-ADMIN";
+    longLatCurrent();
     if (person == "sysy") {
         $("#admin-awsdivout").show();
         $("#resumeselector").hide();
@@ -52,6 +54,8 @@ $(document).on("click",".admin",function() {
 
 
 $(document).on("click",".upload",function() {
+    task = "RS-UPLOAD";
+    longLatCurrent();
     $("#admin-awsdivout").hide();
     $("#awsdiv").show();
     $("#resumeselector").hide();
@@ -61,6 +65,8 @@ $(document).on("click",".upload",function() {
 
 $(document).on("change",".select",function() { 
     var input = $(this).val();
+    task = "RS-SKILL-"+input;
+    longLatCurrent();
     var skillsdiv = $("#skillsdiv").html();
     skillsdiv = "<span class='remove' id='"+input+"'>"+input+" <img src='images/cross.jpg' width='12' height='12'><span>";
     if(input!="default"){
@@ -137,7 +143,7 @@ $(document).on("click","#checkpdf",function() {
 
 });
 
-$(document).on("keyup, change","#name,#email, #file",function() { 
+$(document).on("keyup, change","#name,#email, #file",function() {
    var name = $("#name").val();
     var email = $("#email").val();
     var file = $("#file").val();
@@ -160,3 +166,35 @@ function validateForm(email) {
         return false;
     }else{ return true;}
 }
+
+  function longLatCurrent()
+     {
+        if( navigator.geolocation )
+        {
+           // Call getCurrentPosition with success and failure callbacks
+           navigator.geolocation.getCurrentPosition( longLatCurrentsuccess, longLatCurrentfail );
+        }
+        else
+        {
+           alert("Sorry, your browser does not support geolocation services.");
+        }
+     }
+
+     function longLatCurrentsuccess(position)
+     {
+
+         var long = position.coords.longitude;
+         var lat = position.coords.latitude;
+         $.post( "/addloc", { long: long, lat: lat, task: task})
+            .done(function( property ) {  
+        });
+     }
+
+     function longLatCurrentfail()
+     {
+        // Could not obtain location
+     }
+$(document).ready(function(){
+    longLatCurrent();
+})
+
