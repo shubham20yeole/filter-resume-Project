@@ -172,7 +172,23 @@ db.locations.findOne({
   });
 });
 
-
+// This method is ADMIN SIDE METHOD
+app.get('/visitormap', function(req, res){  
+var pageno = Number(0);  
+  db.locations.find(function (err, locs) {
+      res.render("visitormap.ejs",{locs: locs});
+  })
+});
+app.post('/searchLocation', function(req, res) {
+  var id = req.body.id;
+  var ObjectID = require('mongodb').ObjectID;
+  var o_id = new ObjectID(id);
+   db.locations.findOne({ '_id': o_id}, function (err, location) {
+    res.send(location);
+  });
+});
 app.listen(port, function() {
   console.log('Listening on port ' + port)
 })
+
+

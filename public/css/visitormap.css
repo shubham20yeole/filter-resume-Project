@@ -1,0 +1,83 @@
+body{ 
+   background-color: #e9e6ea;
+   /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Indian_National_Flag.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;*/
+}
+#heading{font-size: 25px; font-weight: bold; background-color: #FF5722; color: #FBE9E7; padding: 2%;}
+#resultcount{color: #e6f5ee; background-color: #099c5d; font-size: 2em; font-weight: bold;}
+#resultcount{padding: 2%; font-weight: bold;}
+#awsdiv{
+  width: 95%;
+  margin-top: 50px; 
+  background-color: white;
+  text-align: center;
+  padding: 1%;
+}
+
+@media screen and (min-width:0\0) { 
+    select {
+        background:none;
+        padding: 5px;
+    }
+}
+.header{
+ position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+}
+#footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3473a0;
+    color: white;
+} 
+
+#footer li {
+    float: right;
+}
+#footer ul li:nth-child(1) {float: left}
+#footer ul li:nth-child(2) {float: left}
+#footer ul li:nth-child(3) {float: left}
+
+#footer ul li:nth-child(4) ,
+#footer ul li:nth-child(5) ,
+#footer ul li:nth-child(6) {background-color: #1a3950}
+
+
+#footer li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#footer li a:hover {
+    background-color: #111;
+}
+#footer li.right{
+text-align:right;
+}
+#msg{font-weight: bold; font-size: 2em;}
+a{cursor: pointer;}
+.col-md-4{text-align: left; font-weight: bold;}
+.col-md-2{text-align: right;}
+.col-md-6{text-align: right;}
+span{color: #607D8B}
+.left{text-align: left; float: left;}
+.right{text-align: right; float: right;}
+.cont{min-width: 100%; min-height: 200px;}
+.row{border-radius: 10px; border-color: black; }
