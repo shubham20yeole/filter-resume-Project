@@ -8,16 +8,11 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
 var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills", "locations"]
-
 var db = mongojs('mongodb://*************:*************@*************.mlab.com:*************/*************', collections)
-
 var app = express();
 var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
-
 var JSFtp = require("jsftp");
-
-
 var fs = require('fs');
 var config = {
   host: 'ftp.*************.com',
