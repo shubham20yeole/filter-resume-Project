@@ -1,16 +1,15 @@
 var express = require('express');
 var SparkPost = require('sparkpost');
-var sp = new SparkPost('9bf6b6d7079252cab943971ff90c08cc3a9cee0d');
+var sp = new SparkPost('*************');
 var port = process.env.PORT || 3000
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
-// var db = mongojs('mongodb://ds143717.mlab.com:43717/shubham', ['users']);
 var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills", "locations"]
 
-var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63387/paceteam3', collections)
+var db = mongojs('mongodb://*************:*************@*************.mlab.com:*************/*************', collections)
 
 var app = express();
 var ObjectId = mongojs.ObjectId;
@@ -21,10 +20,10 @@ var JSFtp = require("jsftp");
 
 var fs = require('fs');
 var config = {
-  host: 'ftp.byethost8.com',
+  host: 'ftp.*************.com',
   port: 21,
-  user: 'b8_19205430',
-  password: 'Shubham4194'
+  user: '*************',
+  password: '*************'
 }
 
 // View Engine
