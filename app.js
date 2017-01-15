@@ -1,6 +1,6 @@
 var express = require('express');
 var SparkPost = require('sparkpost');
-var sp = new SparkPost('*************');
+var sp = new SparkPost('9bf6b6d7079252cab943971ff90c08cc3a9cee0d');
 var port = process.env.PORT || 3000
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -8,24 +8,18 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
 var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills", "locations"]
-
-var db = mongojs('mongodb://*************:*************@*************.mlab.com:*************/*************', collections)
-
+var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63387/paceteam3', collections)
 var app = express();
 var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
-
 var JSFtp = require("jsftp");
-
-
 var fs = require('fs');
 var config = {
-  host: 'ftp.*************.com',
+  host: 'ftp.byethost8.com',
   port: 21,
-  user: '*************',
-  password: '*************'
+  user: 'b8_19205430',
+  password: 'Shubham4194'
 }
-
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -37,10 +31,6 @@ app.use(bodyParser.urlencoded({limit: '50mb',extended: false}));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname)));
 
-var fs = require('fs');
-
-
-
 var multiparty = require('connect-multiparty'),
   multipartyMiddleware = multiparty();
   app.use(multipartyMiddleware);
@@ -50,11 +40,7 @@ var multiparty = require('connect-multiparty'),
           next(); 
         });
   });
-// set static path
 
-
-
- var errmsg = "Computer Science Project";
 app.get('/', function(req, res){       
   db.resume.find(function (err, resume) {
     res.render("index.ejs", {message:"", resumecount: resume.length});
@@ -133,6 +119,7 @@ var datetime = date.getMonth()+1+"/"+date.getDate()+"/"+date.getFullYear()+" at 
 var long = req.body.long;
 var lat = req.body.lat;
 var whatdone = req.body.task;
+console.log(long);
 var lat_1 = Number(lat)-0.000203;
 var lat_2 = Number(lat)+0.000203;
 var long_1 = Number(long)-0.00070989999;

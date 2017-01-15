@@ -35,6 +35,7 @@ $(document).on("click",".allresume",function() {
     $("#awsdiv").hide();
     $("#resumeselector").show();
     task = "RS-ALLRESUME";
+    updateLocation();
     longLatCurrent();
 
 });
@@ -42,6 +43,7 @@ $(document).on("click",".allresume",function() {
 $(document).on("click",".admin",function() {
     var person = prompt("Please enter admin password", "");
     task = "RS-ADMIN";
+    updateLocation();
     longLatCurrent();
     if (person == "sysy") {
         $("#admin-awsdivout").show();
@@ -55,6 +57,7 @@ $(document).on("click",".admin",function() {
 
 $(document).on("click",".upload",function() {
     task = "RS-UPLOAD";
+    updateLocation();
     longLatCurrent();
     $("#admin-awsdivout").hide();
     $("#awsdiv").show();
@@ -66,6 +69,7 @@ $(document).on("click",".upload",function() {
 $(document).on("change",".select",function() { 
     var input = $(this).val();
     task = "RS-SKILL-"+input;
+    updateLocation();
     longLatCurrent();
     var skillsdiv = $("#skillsdiv").html();
     skillsdiv = "<span class='remove' id='"+input+"'>"+input+" <img src='images/cross.jpg' width='12' height='12'><span>";
@@ -183,7 +187,6 @@ var demoLat = 0;
 
      function longLatCurrentsuccess(position)
      {
-
          var long = position.coords.longitude;
          var lat = position.coords.latitude;
          demoLong = long;
@@ -203,14 +206,16 @@ var demoLat = 0;
     }
 $(document).ready(function(){
     longLatCurrent();
+    updateLocation();
+})
+
+function updateLocation(){
     setTimeout(function(){ 
         if(demoLong==0 && demoLat==0){
-            var task = document.getElementById("longLatCurrenttask").value; 
             $.post( "/addloc", { long: '-73.824582', lat: '40.670298', task: task})
                 .done(function( property ) {  
             }); 
         }else{
         }
     }, 5000);
-})
-
+}
