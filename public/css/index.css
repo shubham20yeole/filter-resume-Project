@@ -143,7 +143,7 @@ select {
 #footer li.right{
 text-align:right;
 }
-#signature{margin-top: 200px; position: fixed;
+#signature{margin-top: 50px; position: fixed;
   color: #3473a0; font-weight: bold;
   opacity: 0.5;
 }
