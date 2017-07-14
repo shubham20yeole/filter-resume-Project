@@ -8,18 +8,21 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
 var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills", "locations"]
-var db = mongojs('mongodb://*************:*************@*************.mlab.com:*************/*************', collections)
+var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63387/paceteam3', collections)
 var app = express();
 var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
 var JSFtp = require("jsftp");
 var fs = require('fs');
 var config = {
-  host: 'ftp.*************.com',
+  host: 'ftp.**.com',
   port: 21,
-  user: '*************',
-  password: '*************'
+  user: '***',
+  password: '**'
 }
+// var Client = require('ftp');
+// var c = new Client();
+// c.connect(config);
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -60,7 +63,7 @@ app.post('/upload', function(req, res){
   var fullname = req.body.fullname;
   var email = req.body.email;
   var timestamp = new Date().valueOf();
-  var Client = require('ftp');
+  
   var date = new Date();
   var datetime = (date.getMonth()+1)+" / "+date.getDate()+" / "+date.getFullYear()+" at "+date.getHours()+":"+date.getMinutes();
   let PDFParser = require("pdf2json");
@@ -101,7 +104,7 @@ app.post('/upload2', function(req, res){
   var file = req.files.file;
   var filepath = file.path;
   var timestamp = new Date().valueOf();
-  var Client = require('ftp'); 
+   
   var c = new Client();
     c.on('ready', function() {
       c.put(file.path, 'htdocs/public_html/career/'+file.originalFilename, function(err) {
