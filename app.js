@@ -15,14 +15,14 @@ var passport = require("passport")
 var JSFtp = require("jsftp");
 var fs = require('fs');
 var config = {
-  host: 'ftp.**.com',
+  host: 'ftp.byethost8.com',
   port: 21,
-  user: '***',
-  password: '**'
+  user: 'b8_19205430',
+  password: 'Shubham4194'
 }
-// var Client = require('ftp');
-// var c = new Client();
-// c.connect(config);
+var Client = require('ftp');
+var c = new Client();
+c.connect(config);
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
