@@ -8,17 +8,17 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs')
 var mongodb = require('mongodb')
 var collections = ["users", "blog", "comments", "property", "images", "notification", "bookmark", "messages","timetable", "timetablecategory", "timetablequestion", "resume", "skills", "locations"]
-var db = mongojs('mongodb://shubham20.yeole:shubham20.yeole@ds163387.mlab.com:63387/paceteam3', collections)
+var db = mongojs('mongodb://**********:****@*****.mlab.com:********/paceteam3', collections)
 var app = express();
 var ObjectId = mongojs.ObjectId;
 var passport = require("passport")
 var JSFtp = require("jsftp");
 var fs = require('fs');
 var config = {
-  host: 'ftp.byethost8.com',
+  host: 'ftp.*******.com',
   port: 21,
-  user: 'b8_19205430',
-  password: 'Shubham4194'
+  user: '*******',
+  password: '*******'
 }
 var Client = require('ftp');
 // var c = new Client();
