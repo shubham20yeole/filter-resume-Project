@@ -21,8 +21,8 @@ var config = {
   password: 'Shubham4194'
 }
 var Client = require('ftp');
-var c = new Client();
-c.connect(config);
+// var c = new Client();
+// c.connect(config);
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
